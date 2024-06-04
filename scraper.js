@@ -5,11 +5,8 @@ const baseUrl = 'https://nontonanimeid.cyou/';
 
 const headers = {
     'Origin': baseUrl,
-    'Cookie': '_ga=GA1.2.826878888.1673844093; _gid=GA1.2.1599003702.1674031831; _gat=1',
     'Referer': baseUrl,
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:101.0) Gecko/20100101 Firefox/101.0',
-    'X-Requested-With': 'XMLHttpRequest',
-    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
 };
 
 async function fetchData(url) {
@@ -35,7 +32,6 @@ async function scrapeOngoing() {
 
 async function scrapeAnime(endpoint) {
     const $ = await fetchData(`${baseUrl}anime/${endpoint}`);
-    // Scraping logic for /anime/:endpoint
     const title = $('h1.entry-title.cs').text();
     const imgSrc = $('.poster img').attr('src');
     const spans = $('.extra span').toArray().map(span => $(span).text());
